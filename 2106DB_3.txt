@@ -1,0 +1,24 @@
+(1)
+SELECT *
+FROM acc_intakes
+
+(2)
+SELECT ANIMAL_ID, BREED
+FROM acc_intakes
+WHERE BREED LIKE '%Mix%';
+
+(3)
+SELECT ANIMAL_TYPE, COUNT(ANIMAL_TYPE) AS TOTAL
+FROM acc_intakes
+GROUP BY ANIMAL_TYPE;
+
+(4)
+SELECT ANIMAL_ID
+FROM acc_intakes
+WHERE intake_condition like 'Sick';
+
+(5)
+SELECT animal_type,
+min(datetime) as datetime
+FROM acc_intakes
+GROUP BY ANIMAL_TYPE  
