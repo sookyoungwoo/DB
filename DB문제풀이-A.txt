@@ -1,0 +1,73 @@
+1{
+SELECT COUNT(*)
+FROM  customers;
+}
+
+2{
+SELECT website
+FROM  customers
+WHERE name = 'Apple';
+}
+
+
+3{
+SELECT website
+FROM  customers
+WHERE name = 'Apple' or name='Oracle' or name ='eBay';
+}
+
+4{
+SELECT NAME, credit_limit
+FROM  customers
+ORDER BY credit_limit DESC
+}
+
+5{
+SELECT NAME, ADDRESS
+FROM  customers
+WHERE ADDRESS LIKE '%Bangalore%';
+}
+
+6{
+SELECT DISTINCT JOB_TITLE
+FROM  employees;
+}
+
+7{
+SELECT COUNT ( DISTINCT JOB_TITLE)
+FROM  employees;
+}
+
+8{
+SELECT first_name, job_title 
+FROM  employees
+WHERE job_title='Programmer';
+}
+9{
+SELECT SUM(quantity) as TOTAL_SUM, SUM(unit_price) as TOTAL_PRICE
+FROM  order_items
+GROUP BY item_id
+ORDER BY TOTAL_SUM DESC, TOTAL_PRICE DESC;
+}
+
+10{
+SELECT first_name, email
+FROM  employees
+WHERE manager_id is null;
+}
+
+11{
+SELECT first_name
+FROM  employees
+WHERE manager_id in (SELECT employee_id
+    FROM employees
+    WHERE first_name = 'Mohammad');
+}
+12{
+SELECT first_name, job_title 
+FROM employees
+WHERE manager_id = (
+    SELECT employee_id 
+    FROM employees
+    WHERE first_name = 'Tommy') AND job_title = 'Sales Manager' OR job_title = 'Stock Manager';
+}
