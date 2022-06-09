@@ -1,0 +1,27 @@
+create view vw_Book
+as select bookname, publisher, price
+from Book
+where bookname LIKE '%축구%';
+
+drop view vw_book;
+
+select * from vw_book;
+
+
+
+create view vw_Orders (orderid, custid, name, bookid, bookname, saleprice, orderdate)
+as select od.orderid, od.custid, concat(concat( substr(cs.name,1,1),'*'),substr(cs.name,3,3)) /*이름 중간글자를 *로 출력*/, od.bookid, bk.bookname, od.saleprice, od.orderdate
+from orders od, customer cs, book bk
+where od.custid=cs.custid and od.bookid=bk.bookid;
+
+drop view vw_Orders;
+
+select *
+from orders od, customer cs, book bk
+where od.custid=cs.custid and od.bookid=bk.bookid;
+
+select * from vw_orders;
+
+
+select replace(vworders.name,2,'*') 
+from vw_orders;
