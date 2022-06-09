@@ -1,0 +1,40 @@
+select abs(-15) from dual;
+/*절대값을 구하는 함수*/
+select ceil(15.7) from dual;
+/*소수점을 가장 가까운 정수로 올림하여 값은 반환*/
+select power(3,2) from dual;
+/*제곱하는 함수*/
+select round(15.7) from dual;
+/*반올림한 정수*/
+select concat('HAPPY','Birthday') from dual;
+/*문자를 합침*/
+select lower('Birthday') from dual;
+/*소문자로 만드는 함수*/
+select lpad('Page 1',15,'*.') from dual;
+/*지정한 길이 만큼 왼쪽부터 특정문자로 채워준다*/
+select ltrim('Page 1','Page') from dual;
+/*TRIM( [문자열] , [제거할 문자열] ) 함수는 특정한 문자를 제거 */
+select replace('JACK','J','BL') from dual;
+/*REPLACE('컬럼명','찾을문구','변환문구')
+오라클에서는 문자열을 치환 또는 제거 하는 방법*/
+select substr('ABCDEFG',3,4) from dual;
+/*시작위치와 자를 길이를 지정하여 문자열을 자른다.
+- 함수  :  SUBSTR("문자열", "시작위치", "길이")*/
+select upper('Birthday') from dual;
+/*대문자로 바꿔서 출력*/
+select ascii('A') from dual;
+/*입력한 문자의 아스키코드를 출력*/
+select instr('CORPORATE FLOOR','OR',3,2) from dual;
+/*오라클에서는 문자열에서 원하는 문자를 찾을 때,
+INSTR ( [문자열], [찾을 문자 값], [찾기를 시작할 위치(1,-1)], [찾은 결과의 순번(1...n)] )*/
+select length('Birthday') from dual;
+/*문자열의 문자수를 출력*/
+select sysdate from dual;
+/*오늘 날짜를 출력*/
+select nullif(123,345) from dual;
+/*EXPR1과 EXPR2가 같다면 NULL을 리턴한다.
+- EXPR1과 EXPR2가 같지 않다면 EXPR1을 리턴한다.*/
+select nvl(NULL,123) from dual;
+/*NVL 함수는 값이 NULL인 경우 지정값을 출력하고, NULL이 아니면 원래 값을 그대로 출력한다.
+- 함수  :  NVL("값", "지정값") 
+ */
